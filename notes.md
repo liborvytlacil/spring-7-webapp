@@ -53,3 +53,18 @@ Commonly we organize by type/function.
 ## Maven wrapper
 By default, there is a maven wrapper included in the project. It allows runnning maven commands without
 having maven installed locally.
+
+## SOLID principles of OOP
+Date back to 1995, by Uncle Bob.
+
+- Single responsibility principle
+- Open/closed principle: Classes should be open for extension, but closed for modification.
+- Liskov substitution principle: Class hierarchy should be designed so that when objects in a program are replaced
+with their subtypes, the program should still behave correctly.
+- Interface segregation principle: Clients should not be forced to depend on methods they do not use, i.e.
+our interfaces should be small and focused, client specific.
+- Dependency inversion principle: High-level modules should not depend on low-level modules. Both should depend on the same
+abstractions.
+
+DI: For example a Service depends on a PdfReader.. to apply DI, we would create an interface Reader, make PdfReader impelemnt it
+and make Service depend on Reader instead.

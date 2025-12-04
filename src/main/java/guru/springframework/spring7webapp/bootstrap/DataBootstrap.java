@@ -32,10 +32,20 @@ public class DataBootstrap implements CommandLineRunner {
         book.setIsbn("978-1617292237");
         book = bookRepository.save(book);
 
+        Book book2 = new Book();
+        book2.setTitle("Witcher: The Wild Hunt");
+        book2.setIsbn("978-1594205486");
+        book2 = bookRepository.save(book2);
+
         Author author = new Author();
         author.setFirstName("John");
         author.setLastName("Cleese");
         author = authorRepository.save(author);
+
+        Author author2 = new Author();
+        author2.setFirstName("Andrzrej");
+        author2.setLastName("Sapkowski");
+        author2 = authorRepository.save(author2);
 
         /* normally we would add the book to the author's books collection as well (bi-directional relationship), but
         we do not need to as the book collection in author's entity has mappedBy property set. I.e. it is the book entity that owns the relationship.
@@ -44,6 +54,8 @@ public class DataBootstrap implements CommandLineRunner {
         //author.getBooks().add(book);
         //authorRepository.save(author);
         book = bookRepository.save(book);
+        book2.getAuthors().add(author2);
+        book2 = bookRepository.save(book2);
 
         Publisher publisher = new Publisher();
         publisher.setPublisherName("Wrox Press");
@@ -53,8 +65,11 @@ public class DataBootstrap implements CommandLineRunner {
         publisher.setZipcode("02115");
         publisher = publisherRepository.save(publisher);
 
-        book.setPublishers(publisher);
+        book.setPublisher(publisher);
         book = bookRepository.save(book);
+
+        book2.setPublisher(publisher);
+        book2 = bookRepository.save(book2);
 
 
         LOGGER.info("Data Bootstrap Complete");

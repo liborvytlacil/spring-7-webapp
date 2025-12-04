@@ -16,7 +16,7 @@ public class Publisher {
     private String state;
     private String zipcode;
 
-    @OneToMany(mappedBy = "publishers")
+    @OneToMany(mappedBy = "publisher")
     private Set<Book> books;
 
     public long getId() {
